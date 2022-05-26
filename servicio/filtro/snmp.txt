@@ -1,0 +1,6 @@
+login <CORREOSCHILE-TIPOA-RM-RENCA-SW7_DATACENTER-10000580064>
+SNMP version running in the system: 
+           Polling: SNMPv1:disable, SNMPv2c:enable,  SNMPv3:disable
+           Trap   : SNMPv1:disable, SNMPv2c:disable, SNMPv3:disable
+
+frojas@saturno:/home/Python/huawei/netmiko_huawei$ 

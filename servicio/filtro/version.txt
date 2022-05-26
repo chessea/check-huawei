@@ -1,0 +1,18 @@
+login <CORREOSCHILE-TIPOA-RM-RENCA-SW7_DATACENTER-10000580064>
+Huawei Versatile Routing Platform Software
+VRP (R) software, Version 5.170 (S5735 V200R020C10SPC500)
+Copyright (C) 2000-2020 HUAWEI TECH Co., Ltd.
+HUAWEI S5735-L24P4S-A1 Routing Switch uptime is 4 weeks, 1 day, 0 hour, 40 minutes
+
+ES5D2V28S028 0(Master)  : uptime is 4 weeks, 1 day, 0 hour, 38 minutes
+DDR             Memory Size : 512   M bytes
+FLASH Total     Memory Size : 512   M bytes
+FLASH Available Memory Size : 253   M bytes
+Pcb           Version   : VER.A
+BootROM(1st)       Version   : 0000.0000
+BootROM(2nd)       Version   : 0000.00d9
+BootLoad      Version   : 0214.0000
+CPLD          Version   : 0101 
+MCU           Version   : 1.10.2.10
+Software      Version   : VRP (R) Software, Version 5.170 (V200R020C10SPC500)
+FLASH         Version   : 0000.0000
