@@ -4,7 +4,7 @@ import asyncio
 class FuncionesFiltro:
    
     @classmethod    
-    def filtroCodigo(cls,comandoShRun):
+    async def filtroCodigo(cls,comandoShRun):
         busquedaCS =  ["10000","100000","7880","7879","66678"]
         for litadoBusqueda in busquedaCS:
             filtroCS = [s for s in comandoShRun if litadoBusqueda in s]
@@ -25,7 +25,7 @@ class FuncionesFiltro:
 
             
     @classmethod
-    def filtroOTT(cls,comandoShRun):
+    async def filtroOTT(cls,comandoShRun):
 
         busquedaOTT = ["71701","712008","7200","7210","7180","7190", "7170", "7160" ,"7150"]
         for litadoBusqueda in busquedaOTT:

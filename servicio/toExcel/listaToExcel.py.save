@@ -47,8 +47,7 @@ class ListaToExcel:
             for todos3 in x:
                 contador=contador+1
                 sheet3[f'A{contador}']=lista[6][todos3]
-            book.save(f'/home/Clientes/check_huawei/CHECKPROV_{sigla}_{lista[1]}_{lista[0]}_{tipoEnlace}.xlsx')
+ book.save(f'/home/Clientes/check_huawei/CHECKPROV_{sigla}_{lista[1]}_{lista[0]}_{tipoEnlace}.xlsx')
             print('FIN SH RUN') 
         except Exception as e:
             print('ERROR Al aguardar datos')               
-
