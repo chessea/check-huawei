@@ -1,4 +1,4 @@
-import itertools
+import asyncio
 
 
 class FuncionesFiltro:
@@ -47,11 +47,12 @@ class FuncionesFiltro:
                 return  filtroOTT[0]
    
     @classmethod
-    def filtroModel(cls, comandoModel):
+    async def filtroModel(cls, comandoModel):
         list_versions = ['CE6800 V200R005C10SPC607B607','AR3200 V200R003C00','S5735-L24P4S-A1']
         for software_ver in list_versions:
             int_version= 0
             int_version = comandoModel.find(software_ver) 
+            await asyncio.sleep(1)
             if int_version > 0:
 		
                 return software_ver
@@ -59,11 +60,12 @@ class FuncionesFiltro:
                 pass
       
     @classmethod
-    def filtroMarca(cls, comandoMarca):
+    async def filtroMarca(cls, comandoMarca):
         list_versions = ['Huawei','cisco','Foriner']
         for software_marca in list_versions:
             int_version= 0
-            int_version = comandoMarca.find(software_marca) 
+            int_version = comandoMarca.find(software_marca)
+            await asyncio.sleep(1) 
             if int_version > 0:
                 return software_marca
             else:
@@ -71,13 +73,14 @@ class FuncionesFiltro:
             
                        
     @classmethod
-    def filtroSnmpVersion(cls, comandoSnmpVersion):
+    async def filtroSnmpVersion(cls, comandoSnmpVersion):
         list_versions = ['SNMPv2c:enable',
                  'SNMPv3:enable',
                  ]
         for snmp_version in list_versions:
             int_version= 0
             int_version = comandoSnmpVersion.find(snmp_version) 
+            await asyncio.sleep(1)
             if int_version > 0:
                 if int_version == 'SNMPv3:enable':
                     return 'V3'
@@ -87,8 +90,9 @@ class FuncionesFiltro:
                 pass     
 
     @classmethod
-    def filtroHostname(cls, comandoHostname):
+    async def filtroHostname(cls, comandoHostname):
         dato=comandoHostname.split(' ')
+        await asyncio.sleep(1)
         if len(dato[1]) > 10:
             return dato[1]
         else:

@@ -1,4 +1,5 @@
 import time
+import asyncio
 from servicio.netmiko.comando import Comando
 from servicio.filtro.funcionesFiltro import  FuncionesFiltro
 from servicio.toExcel.listaToExcel import ListaToExcel
@@ -27,15 +28,15 @@ for ip in lista:
                    'dis cur | i sysname',
                    'dis snmp-agent sys-info version']
     
-    comandos=Comando.enviarComando(listaComandos,ip,usuario,password)
+    comandos=asyncio.run(Comando.enviarComando(listaComandos,ip,usuario,password))
     disCur, brief, disVer, disVer2 ,disRunHost, snmpcomando = comandos
     
-    cs=FuncionesFiltro.filtroCodigo(disCur)
-    ott=FuncionesFiltro.filtroOTT(disCur)
-    marca=FuncionesFiltro.filtroMarca(disVer2)
-    model=FuncionesFiltro.filtroModel(disVer2)
-    hostname=FuncionesFiltro.filtroHostname(disRunHost)
-    snmpVersion=FuncionesFiltro.filtroSnmpVersion(snmpcomando)
+    cs=asyncio.run(FuncionesFiltro.filtroCodigo(disCur))
+    ott=asyncio.run(FuncionesFiltro.filtroOTT(disCur))
+    marca=asyncio.run(FuncionesFiltro.filtroMarca(disVer2))
+    model=asyncio.run(FuncionesFiltro.filtroModel(disVer2))
+    hostname=asyncio.run(FuncionesFiltro.filtroHostname(disRunHost))
+    snmpVersion=asyncio(FuncionesFiltro.filtroSnmpVersion(snmpcomando))
     
     
     listaDatos.append(cs)
@@ -48,6 +49,6 @@ for ip in lista:
     listaDatos.append(disVer)
     listaDatos.append(brief)
     listaDatos.append(ip) 
-    
+
     time.sleep(1)
     ListaToExcel.datosToExcel(listaDatos)

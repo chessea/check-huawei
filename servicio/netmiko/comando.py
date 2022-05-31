@@ -1,9 +1,10 @@
 import netmiko
+import asyncio
 from servicio.netmiko.tipoConexion import TipoConexion
 
 class Comando:
     @classmethod
-    def enviarComando(cls,comando,ip, usuario , password ):
+    async def enviarComando(cls,comando,ip, usuario , password ):
         lista= []
         try:
             huewei_ssh=TipoConexion.conexionSSH(ip, usuario ,password)
@@ -30,6 +31,7 @@ class Comando:
             lista.append(disVer2)
             lista.append(disHostname)
             lista.append(disSnmp)
+            await asyncio.sleep(2)
 
             
             return lista
