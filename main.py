@@ -36,7 +36,7 @@ for ip in lista:
     marca=asyncio.run(FuncionesFiltro.filtroMarca(disVer2))
     model=asyncio.run(FuncionesFiltro.filtroModel(disVer2))
     hostname=asyncio.run(FuncionesFiltro.filtroHostname(disRunHost))
-    snmpVersion=asyncio(FuncionesFiltro.filtroSnmpVersion(snmpcomando))
+    snmpVersion=asyncio.run(FuncionesFiltro.filtroSnmpVersion(snmpcomando))
     
     
     listaDatos.append(cs)

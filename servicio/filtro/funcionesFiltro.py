@@ -80,7 +80,6 @@ class FuncionesFiltro:
         for snmp_version in list_versions:
             int_version= 0
             int_version = comandoSnmpVersion.find(snmp_version) 
-            await asyncio.sleep(1)
             if int_version > 0:
                 if int_version == 'SNMPv3:enable':
                     return 'V3'
@@ -88,6 +87,7 @@ class FuncionesFiltro:
                     return 'V2'
             else:
                 pass     
+        await asyncio.sleep(1)
 
     @classmethod
     async def filtroHostname(cls, comandoHostname):

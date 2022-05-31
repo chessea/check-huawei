@@ -4,37 +4,20 @@ class ListaToExcel:
   
     @classmethod
     def datosToExcel(cls,lista):
-        book =openpyxl.load_workbook('/home/Python/git-proyect/check-huawei/servicio/store/v5.xlsx')  
         try:
-            ott=lista[1]
-            cs=lista[0]
-            hostname=lista[2]
-            marca=lista[3]
-            modelo=lista[4]
-            versionSNMP=lista[5]
+            book =openpyxl.load_workbook('/home/Python/git-proyect/check-huawei/servicio/store/v5.xlsx')  
+   
 					
             sigla="SIGLA.CLIENTE"
             tipoEnlace='UNICO'
-            if ott == None:
-                ott="sin datos"
-                
-            if cs == None:
-                cs="sin datos"
-            if hostname == None:
-                hostname="sin datos"
-            if marca == None:
-                marca="sin datos"
-            if modelo == None:
-                modelo="sin datos"            
-            if versionSNMP == None:
-                versionSNMP="sin datos"            
+        
             sheet = book['encabezado']
-            sheet['B3']=ott
-            sheet['B4']=cs
-            sheet['B14']=hostname
-            sheet['B19']=marca
-            sheet['B20']=modelo
-            sheet['B21']=versionSNMP
+            sheet['B3']=lista[1]
+            sheet['B4']=lista[0]
+            sheet['B14']=lista[2]
+            sheet['B19']=lista[3]
+            sheet['B20']=lista[4]
+            sheet['B21']=lista[5]
             sheet['B25']=lista[9]       
             print('FIN ENCABEZADO')
             
@@ -67,4 +50,4 @@ class ListaToExcel:
             print('FIN SH RUN') 
         except Exception as e:
             print('ERROR Al aguardar datos')               
-        book.save(f'/home/Clientes/check_huawei/CHECKPROV_{sigla}_{ott}_{cs}_{tipoEnlace}.xlsx')
+        book.save(f'/home/Clientes/check_huawei/CHECKPROV_{sigla}_{lista[1]}_{lista[0]}_{tipoEnlace}.xlsx')
