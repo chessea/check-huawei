@@ -2,6 +2,7 @@ import netmiko
 from servicio.netmiko.tipoConexion import TipoConexion
 
 class Comando:
+    @classmethod
     def enviarComando(cls,comando,ip, usuario , password ):
         lista= []
         try:

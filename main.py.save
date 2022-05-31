@@ -1,8 +1,7 @@
-import time
+from dis import dis
 from servicio.netmiko.comando import Comando
 from servicio.filtro.funcionesFiltro import  FuncionesFiltro
 from servicio.toExcel.listaToExcel import ListaToExcel
-
 from bullet import VerticalPrompt, Input, Password
 
 print("Inicio")
@@ -12,11 +11,15 @@ cli= VerticalPrompt([
 result=cli.launch()
 
 usuario=result[0][1]
-password=result[1][1] 
+pws=result[1][1] 
+
+
 
 with open("/home/Python/git-proyect/check-huawei/servicio/store/listado.txt", "r") as datos:
-    lista = [linea.rstrip() for linea in datos] 
-    
+     lista = [linea.rstrip() for linea in datos]
+     	 
+
+   
 listaDatos= [] 
 for ip in lista:
         
@@ -26,10 +29,12 @@ for ip in lista:
                    'dis version', 
                    'dis cur | i sysname',
                    'dis snmp-agent sys-info version']
-    
-    comandos=Comando.enviarComando(listaComandos,ip,usuario,password)
+        
+    comandos=Comando.enviarComando(listaComandos,ip,usuario,pws)
     disCur, brief, disVer, disVer2 ,disRunHost, snmpcomando = comandos
-    
+    print(disVer2
+
+)
     cs=FuncionesFiltro.filtroCodigo(disCur)
     ott=FuncionesFiltro.filtroOTT(disCur)
     marca=FuncionesFiltro.filtroMarca(disVer2)
@@ -47,7 +52,6 @@ for ip in lista:
     listaDatos.append(disCur)
     listaDatos.append(disVer)
     listaDatos.append(brief)
-    listaDatos.append(ip) 
     
-    time.sleep(1)
+    
     ListaToExcel.datosToExcel(listaDatos)
